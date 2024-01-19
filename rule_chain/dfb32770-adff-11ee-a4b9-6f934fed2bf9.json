@@ -1,0 +1,110 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "dfc1f480-adff-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "dfb32770-adff-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BDG - Trigger By Humidity",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 2,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 2,
+      "toIndex" : 1,
+      "type" : "True"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 279,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nvar msgType;\r\nvar device = metadata.device;\r\nvar HIGH_HUMIDITY = Number(msg.maxHumi);\r\nvar LOW_HUMIDITY = Number(msg.minHumi);\r\nvar deviceTriggered = metadata.identifier + device;\r\n\r\nvar humidity = [msg.humi1, msg.humi2];\r\n\r\nfunction maxThresholdCheck(MAX) {\r\n    return MAX > HIGH_HUMIDITY;\r\n}\r\n\r\nfunction minThresholdCheck(MIN) {\r\n    return MIN < LOW_HUMIDITY;\r\n}\r\n\r\nvar maxThreshold = humidity.some(maxThresholdCheck);\r\nvar minThreshold = humidity.some(minThresholdCheck);\r\n\r\nif (maxThreshold) {\r\n    payload[deviceTriggered] = metadata.aboveMaxHumidity;\r\n} else if (minThreshold) {\r\n    payload[deviceTriggered] = metadata.belowMinHumidity;\r\n}\r\n\r\nmsgType = \"POST_ATTRIBUTES_REQUEST\";\r\n\r\nreturn {\r\n    msg: payload,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+        "tbelScript" : ""
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "dfc1f480-adff-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Humidity",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 855,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "scope" : "CLIENT_SCOPE",
+        "notifyDevice" : false,
+        "sendAttributesUpdatedNotification" : false,
+        "updateAttributesOnlyOnValueChange" : false
+      },
+      "configurationVersion" : 1,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "dfc2b7d0-adff-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Automation Updates",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 569,
+        "layoutY" : 149
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return msg.temperature > 20;",
+        "tbelScript" : "return msgType == \"POST_ATTRIBUTES_REQUEST\";"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "65755750-ae11-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Update State",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.filter.TbJsFilterNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

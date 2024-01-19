@@ -1,0 +1,225 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "25a5a7c0-adc5-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "259a5d20-adc5-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BDG - Data Enrichment",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 2,
+      "type" : "Failure"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 5,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 3,
+      "toIndex" : 0,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 5,
+      "toIndex" : 6,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 6,
+      "toIndex" : 4,
+      "type" : "True"
+    } ],
+    "firstNodeIndex" : 3,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 558,
+        "layoutY" : 155
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nvar generative = [\"F01\", \"F02\", \"F03\", \"F04\", \"F05\", \"F06\",\r\n    \"F07\"\r\n];\r\nvar vegetative = [\"F08\", \"F09\", \"F10\", \"F11\", \"F12\", \"F13\",\r\n    \"F14\"\r\n];\r\n\r\nvar code = metadata.deviceType.substring(0, 3);\r\n\r\nfor (var value in msg) {\r\n    if (msg.hasOwnProperty(value)) {\r\n        var newName = value.replace(/^bdg[0-9]+_/g, \"\");\r\n        payload[newName] = msg[value];\r\n    }\r\n    metadata.identifier = value.substring(0, 7);\r\n}\r\n\r\nfunction checkGenerative(genCode) {\r\n    return genCode == code;\r\n}\r\n\r\nfunction checkVegetative(vegCode) {\r\n    return vegCode == code;\r\n}\r\n\r\nvar checkGenMode = generative.some(checkGenerative);\r\nvar checkVegMode = vegetative.some(checkVegetative);\r\n\r\nif(checkGenMode){\r\n    metadata.mode = \"GENERATIVE\";\r\n}else if(checkVegMode){\r\n    metadata.mode = \"VEGETATIVE\";\r\n}\r\n\r\nmetadata.phaseCode = code;\r\n\r\nreturn {\r\n    msg: payload,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+        "tbelScript" : "return {msg: pesan, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "25a3d300-adc5-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Generalization",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 865,
+        "layoutY" : 109
+      },
+      "configuration" : {
+        "version" : 0
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "25a4e470-adc5-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Success",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainOutputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 864,
+        "layoutY" : 211
+      },
+      "configuration" : {
+        "version" : 0
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "25a559a0-adc5-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Failure",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainOutputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 303,
+        "layoutY" : 152
+      },
+      "configuration" : {
+        "dataToFetch" : "ATTRIBUTES",
+        "dataMapping" : {
+          "minRoomTempThreshold" : "minRoomTemp",
+          "maxRoomTempThreshold" : "maxRoomTemp",
+          "minComposeTempThreshold" : "minComTemp",
+          "maxComposeTempThreshold" : "maxComTemp",
+          "middleRoomTempThreshold" : "middleRoomTemp",
+          "minHumidityThreshold" : "minHumi",
+          "maxHumidityThreshold" : "maxHumi",
+          "minCO2Threshold" : "minCO2",
+          "maxCO2Threshold" : "maxCO2",
+          "middleComposeTempThreshold" : "middleComTemp"
+        },
+        "fetchTo" : "METADATA"
+      },
+      "configurationVersion" : 1,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "25a5a7c0-adc5-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Threshold Data",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.metadata.TbGetTenantAttributeNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1397,
+        "layoutY" : 312
+      },
+      "configuration" : {
+        "scope" : "CLIENT_SCOPE",
+        "notifyDevice" : false,
+        "sendAttributesUpdatedNotification" : false,
+        "updateAttributesOnlyOnValueChange" : false
+      },
+      "configurationVersion" : 1,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "d6d7b4e0-ae0e-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Save Phase",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 866,
+        "layoutY" : 312
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nvar msgType;\r\nvar fase = metadata.identifier + \"fase\";\r\n\r\npayload[fase] = metadata.deviceType.substring(10).toUpperCase();\r\n\r\nmsgType = \"POST_ATTRIBUTES_REQUEST\";\r\n\r\nreturn {msg: payload, metadata: metadata, msgType: msgType};\r\n",
+        "tbelScript" : "return {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "d6d87830-ae0e-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Get Phase",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1133,
+        "layoutY" : 314
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return msg.temperature > 20;",
+        "tbelScript" : "return msgType == \"POST_ATTRIBUTES_REQUEST\";"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "d6d89f40-ae0e-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Update Phase",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.filter.TbJsFilterNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

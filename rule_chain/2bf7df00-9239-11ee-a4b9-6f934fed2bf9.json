@@ -1,0 +1,594 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "a4823900-ae92-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "2bf7df00-9239-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BDG - F3 Conditioning",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 3,
+      "type" : "RPC Request to Device"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 4,
+      "type" : "RPC Request from Device"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 5,
+      "type" : "Other"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 6,
+      "type" : "Post telemetry"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 9,
+      "type" : "Post attributes"
+    }, {
+      "fromIndex" : 6,
+      "toIndex" : 7,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 7,
+      "toIndex" : 8,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 10,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 11,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 13,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 14,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 15,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 17,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 18,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 8,
+      "toIndex" : 20,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 9,
+      "toIndex" : 2,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 10,
+      "toIndex" : 16,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 11,
+      "toIndex" : 12,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 13,
+      "toIndex" : 16,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 14,
+      "toIndex" : 16,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 15,
+      "toIndex" : 16,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 17,
+      "toIndex" : 19,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 18,
+      "toIndex" : 19,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 20,
+      "toIndex" : 19,
+      "type" : "Success"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 277,
+        "layoutY" : 152
+      },
+      "configuration" : {
+        "persistAlarmRulesState" : false,
+        "fetchAlarmRulesStateOnStart" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4823900-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Device Profile",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.profile.TbDeviceProfileNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 553,
+        "layoutY" : 153
+      },
+      "configuration" : {
+        "version" : 0
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a482ae30-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Message Type Switch",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.filter.TbMsgTypeSwitchNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1178,
+        "layoutY" : 280
+      },
+      "configuration" : {
+        "scope" : "CLIENT_SCOPE",
+        "notifyDevice" : false,
+        "updateAttributesOnlyOnValueChange" : false
+      },
+      "configurationVersion" : 1,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a482fc50-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Attributes",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 901,
+        "layoutY" : 529
+      },
+      "configuration" : {
+        "timeoutInSeconds" : 60
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4834a70-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "RPC",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 901,
+        "layoutY" : 404
+      },
+      "configuration" : {
+        "jsScript" : "return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata);"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4837180-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Log RPC From Device",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbLogNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 900,
+        "layoutY" : 653
+      },
+      "configuration" : {
+        "jsScript" : "return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata);"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4839890-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Other",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbLogNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 902,
+        "layoutY" : 153
+      },
+      "configuration" : {
+        "ruleChainId" : "a5baf320-9493-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a483bfa0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Data Filter",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1179,
+        "layoutY" : 154
+      },
+      "configuration" : {
+        "defaultTTL" : 0,
+        "skipLatestPersistence" : false,
+        "useServerTs" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a483e6b0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Telemetry Data",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1453,
+        "layoutY" : 154
+      },
+      "configuration" : {
+        "ruleChainId" : "259a5d20-adc5-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4845be0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Data Enrichment",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 902,
+        "layoutY" : 282
+      },
+      "configuration" : {
+        "ruleChainId" : "a5baf320-9493-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a48482f0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Data Filter",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1730,
+        "layoutY" : 154
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"modeAC1\";\n\n//tentukan batas atas\nmsg.maxRoomTemp = metadata.maxRoomTemp;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxRoomTemp = \"16 COOL LOW\";\n\n//tentukan batas bawah\nmsg.minRoomTemp = metadata.minRoomTemp;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinRoomTemp = \"OFF\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a484d110-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger AC 1",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1738,
+        "layoutY" : 457
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"misting\";\n\n//tentukan batas atas\nmsg.maxHumi = metadata.maxHumi;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxHumidity = \"OFF\";\n\n//tentukan batas bawah\nmsg.minHumi = metadata.minHumi;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinHumidity = \"ON\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4851f30-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger Misting",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 2029,
+        "layoutY" : 453
+      },
+      "configuration" : {
+        "ruleChainId" : "dfb32770-adff-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4854640-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Humidity",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1733,
+        "layoutY" : 230
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"modeAC2\";\n\n//tentukan batas atas\nmsg.maxRoomTemp = metadata.middleRoomTemp;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxRoomTemp = \"16 COOL LOW\";\n\n//tentukan batas bawah\nmsg.minRoomTemp = metadata.minRoomTemp;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinRoomTemp = \"OFF\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4856d50-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger AC 2",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1735,
+        "layoutY" : 306
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"modeAC3\";\n\n//tentukan batas atas\nmsg.maxRoomTemp = metadata.maxRoomTemp;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxRoomTemp = \"16 COOL LOW\";\n\n//tentukan batas bawah\nmsg.minRoomTemp = metadata.minRoomTemp;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinRoomTemp = \"OFF\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4859460-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger AC 3",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1738,
+        "layoutY" : 382
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"modeAC2\";\n\n//tentukan batas atas\nmsg.maxRoomTemp = metadata.middleRoomTemp;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxRoomTemp = \"16 COOL LOW\";\n\n//tentukan batas bawah\nmsg.minRoomTemp = metadata.minRoomTemp;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinRoomTemp = \"OFF\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a485e280-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger AC 4",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 2022,
+        "layoutY" : 153
+      },
+      "configuration" : {
+        "ruleChainId" : "e47508f0-ae86-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a4860990-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Room Temperature",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1738,
+        "layoutY" : 531
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"blower1\";\n\n//tentukan batas atas\nmsg.maxCO2 = metadata.maxCO2;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxCO2 = \"ON\";\n\n//tentukan batas bawah\nmsg.minCO2 = metadata.minCO2;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinCO2 = \"OFF\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a48630a0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger Blower 1",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1736,
+        "layoutY" : 608
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"blower2\";\n\n//tentukan batas atas\nmsg.maxCO2 = metadata.maxCO2;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxCO2 = \"ON\";\n\n//tentukan batas bawah\nmsg.minCO2 = metadata.minCO2;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinCO2 = \"OFF\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a48657b0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger Blower 2",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 2032,
+        "layoutY" : 528
+      },
+      "configuration" : {
+        "ruleChainId" : "424edb30-ae8d-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a486a5d0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By CO2",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1734,
+        "layoutY" : 682
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "//tentukan yang dikontrol\nmetadata.device = \"exhaust\";\n\n//tentukan batas atas\nmsg.maxCO2 = metadata.maxCO2;\n\n//tentukan settingan apabila melebihi batas atas\nmetadata.aboveMaxCO2 = \"ON\";\n\n//tentukan batas bawah\nmsg.minCO2 = metadata.minCO2;\n\n//tentukan settingan apabila di bawah batas bawah\nmetadata.belowMinCO2 = \"OFF\";\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "a486cce0-ae92-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger Exhaust",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

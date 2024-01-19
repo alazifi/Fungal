@@ -1,0 +1,21 @@
+{
+  "entityType" : "WIDGETS_BUNDLE",
+  "entity" : {
+    "alias" : "ota_for_esp32_widget22",
+    "description" : null,
+    "externalId" : null,
+    "id" : {
+      "entityType" : "WIDGETS_BUNDLE",
+      "id" : "f31384b0-a9ed-11ee-a4b9-6f934fed2bf9"
+    },
+    "image" : null,
+    "name" : "OTA widgets",
+    "order" : null,
+    "title" : "OTA widgets"
+  },
+  "fqns" : [ ],
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

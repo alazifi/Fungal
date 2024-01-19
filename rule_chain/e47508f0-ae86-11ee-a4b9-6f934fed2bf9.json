@@ -1,0 +1,110 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "e4869520-ae86-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "e47508f0-ae86-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BDG - Trigger By Room Temperature",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 2,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 2,
+      "toIndex" : 1,
+      "type" : "True"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 279,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nvar msgType;\r\nvar device = metadata.device;\r\nvar HIGH_TEMP = Number(msg.maxRoomTemp);\r\nvar LOW_TEMP = Number(msg.minRoomTemp);\r\nvar deviceTriggered = metadata.identifier + device;\r\n\r\nvar roomTemp = [msg.roomTemp1, msg.roomTemp2];\r\n\r\nfunction maxThresholdCheck(MAX) {\r\n    return MAX > HIGH_TEMP;\r\n}\r\n\r\nfunction minThresholdCheck(MIN) {\r\n    return MIN < LOW_TEMP;\r\n}\r\n\r\nvar maxThreshold = roomTemp.some(maxThresholdCheck);\r\nvar minThreshold = roomTemp.some(minThresholdCheck);\r\n\r\nif (maxThreshold) {\r\n    payload[deviceTriggered] = metadata.aboveMaxRoomTemp;\r\n} else if (minThreshold) {\r\n    payload[deviceTriggered] = metadata.belowMinRoomTemp;\r\n}\r\n\r\nmsgType = \"POST_ATTRIBUTES_REQUEST\";\r\n\r\nreturn {\r\n    msg: payload,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+        "tbelScript" : ""
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "e4869520-ae86-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Room Temperature",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 855,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "scope" : "CLIENT_SCOPE",
+        "notifyDevice" : false,
+        "sendAttributesUpdatedNotification" : false,
+        "updateAttributesOnlyOnValueChange" : false
+      },
+      "configurationVersion" : 1,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "e4873160-ae86-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Automation Updates",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 562,
+        "layoutY" : 150
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return msg.temperature > 20;",
+        "tbelScript" : "return msgType == \"POST_ATTRIBUTES_REQUEST\";"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "e487a690-ae86-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Update State",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.filter.TbJsFilterNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

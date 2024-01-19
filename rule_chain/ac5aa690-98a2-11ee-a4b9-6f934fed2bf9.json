@@ -1,0 +1,80 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "ac735eb0-98a2-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "ac5aa690-98a2-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BWI - Trigger By CO2",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "Success"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 303,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nvar device = metadata.device;\r\nvar HIGH_CO2 = Number(metadata.maxCO2Threshold);\r\nvar LOW_CO2 = Number(metadata.minCO2Threshold);\r\nvar deviceTriggered = metadata.identifier + device;\r\n\r\nif (msg.carbon_dioxide1 > HIGH_CO2 || msg.carbon_dioxide2 >\r\n    HIGH_CO2) {\r\n    payload.method = \"setGpioStatus\";\r\n    payload.params =\r\n        \"{\\\"pin\\\":\\\"\" + deviceTriggered +\r\n        \"\\\",\\\"enabled\\\":true}\";\r\n    payload.additionalInfo = null;\r\n} else if (msg.carbon_dioxide1 < LOW_CO2 || msg.carbon_dioxide2 <\r\n    LOW_CO2) {\r\n    payload.method = \"setGpioStatus\";\r\n    payload.params =\r\n        \"{\\\"pin\\\":\\\"\" + deviceTriggered +\r\n        \"\\\",\\\"enabled\\\":false}\";\r\n    payload.additionalInfo = null;\r\n}\r\n\r\nreturn {\r\n    msg: payload,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+        "tbelScript" : ""
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "ac735eb0-98a2-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By CO2",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 576,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "timeoutInSeconds" : 60
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "ac74be40-98a2-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By CO2",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

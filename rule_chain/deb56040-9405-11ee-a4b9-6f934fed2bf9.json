@@ -1,0 +1,403 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "debd2870-9405-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "deb56040-9405-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BWI - Off F4 Conditioning",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 4,
+      "type" : "RPC Request to Device"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 5,
+      "type" : "RPC Request from Device"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 6,
+      "type" : "Other"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 12,
+      "type" : "Post attributes"
+    }, {
+      "fromIndex" : 1,
+      "toIndex" : 13,
+      "type" : "Post telemetry"
+    }, {
+      "fromIndex" : 2,
+      "toIndex" : 7,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 2,
+      "toIndex" : 9,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 2,
+      "toIndex" : 10,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 2,
+      "toIndex" : 11,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 7,
+      "toIndex" : 8,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 9,
+      "toIndex" : 8,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 10,
+      "toIndex" : 8,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 11,
+      "toIndex" : 8,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 12,
+      "toIndex" : 3,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 13,
+      "toIndex" : 2,
+      "type" : "Success"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 261,
+        "layoutY" : 148
+      },
+      "configuration" : {
+        "persistAlarmRulesState" : false,
+        "fetchAlarmRulesStateOnStart" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debd2870-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Device Profile",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.profile.TbDeviceProfileNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 524,
+        "layoutY" : 146
+      },
+      "configuration" : {
+        "version" : 0
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debdc4b0-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Message Type Switch",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.filter.TbMsgTypeSwitchNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 878,
+        "layoutY" : 43
+      },
+      "configuration" : {
+        "defaultTTL" : 0,
+        "skipLatestPersistence" : false,
+        "useServerTs" : false
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debe12d0-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Telemetry",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1040,
+        "layoutY" : 420
+      },
+      "configuration" : {
+        "scope" : "CLIENT_SCOPE",
+        "notifyDevice" : false,
+        "updateAttributesOnlyOnValueChange" : false
+      },
+      "configurationVersion" : 1,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debe39e0-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Attributes",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 735,
+        "layoutY" : 465
+      },
+      "configuration" : {
+        "timeoutInSeconds" : 60
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debe60f0-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "RPC",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 792,
+        "layoutY" : 394
+      },
+      "configuration" : {
+        "jsScript" : "return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata);"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debeaf10-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Log RPC From Device",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbLogNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 647,
+        "layoutY" : 531
+      },
+      "configuration" : {
+        "jsScript" : "return '\\nIncoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata);"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debed620-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Other",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.action.TbLogNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1170,
+        "layoutY" : 43
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var newMsg = {};\r\nvar HIGH_TEMP = 17.5;\r\nvar LOW_TEMP = 17.5;\r\n\r\nif(msg.compose_temperature1 > HIGH_TEMP || msg.compose_temperature2 > HIGH_TEMP ||msg.compose_temperature3 > HIGH_TEMP ||msg.compose_temperature4 > HIGH_TEMP ||msg.compose_temperature5 > HIGH_TEMP ||msg.compose_temperature6 > HIGH_TEMP){\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params = \"{\\\"pin\\\":\\\"bell1\\\",\\\"enabled\\\":true}\";\r\n    newMsg.additionalInfo = null;\r\n}else if(msg.compose_temperature1 < LOW_TEMP || msg.compose_temperature2 < LOW_TEMP ||msg.compose_temperature3 < LOW_TEMP ||msg.compose_temperature4 < LOW_TEMP ||msg.compose_temperature5 < LOW_TEMP ||msg.compose_temperature6 < LOW_TEMP) {\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params =  \"{\\\"pin\\\":\\\"bell1\\\",\\\"enabled\\\":false}\";\r\n    newMsg.additionalInfo = null;\r\n}\r\n\r\nreturn {msg: newMsg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : null
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debefd30-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Bell 1 By Suhu Ruang",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1442,
+        "layoutY" : 48
+      },
+      "configuration" : {
+        "timeoutInSeconds" : 60
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debf9970-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "otomasi",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1172,
+        "layoutY" : 102
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "var newMsg = {};\r\nvar HIGH_TEMP = 17.5;\r\nvar LOW_TEMP = 17.5;\r\n\r\nif(msg.compose_temperature1 > HIGH_TEMP || msg.compose_temperature2 > HIGH_TEMP ||msg.compose_temperature3 > HIGH_TEMP ||msg.compose_temperature4 > HIGH_TEMP ||msg.compose_temperature5 > HIGH_TEMP ||msg.compose_temperature6 > HIGH_TEMP){\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params = \"{\\\"pin\\\":\\\"bell2\\\",\\\"enabled\\\":true}\";\r\n    newMsg.additionalInfo = null;\r\n}else if(msg.compose_temperature1 < LOW_TEMP || msg.compose_temperature2 < LOW_TEMP ||msg.compose_temperature3 < LOW_TEMP ||msg.compose_temperature4 < LOW_TEMP ||msg.compose_temperature5 < LOW_TEMP ||msg.compose_temperature6 < LOW_TEMP) {\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params =  \"{\\\"pin\\\":\\\"bell2\\\",\\\"enabled\\\":false}\";\r\n    newMsg.additionalInfo = null;\r\n}\r\n\r\nreturn {msg: newMsg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "debfe790-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Bell 2 By Suhu Ruang",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1173,
+        "layoutY" : 155
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "var newMsg = {};\r\nvar HIGH_CO2 = 1700;\r\nvar LOW_CO2 = 1200;\r\n\r\nif(msg.carbon_dioxide1 > HIGH_CO2 || msg.carbon_dioxide2 > HIGH_CO2){\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params = \"{\\\"pin\\\":\\\"bell1\\\",\\\"enabled\\\":false}\";\r\n    newMsg.additionalInfo = null;\r\n}else if(msg.carbon_dioxide1 < HIGH_CO2 || msg.carbon_dioxide2 < HIGH_CO2) {\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params =  \"{\\\"pin\\\":\\\"bell1\\\",\\\"enabled\\\":true}\";\r\n    newMsg.additionalInfo = null;\r\n}\r\n\r\nreturn {msg: newMsg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "dec035b0-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Bell 1 By CO2",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 1172,
+        "layoutY" : 212
+      },
+      "configuration" : {
+        "scriptLang" : "TBEL",
+        "jsScript" : "return {msg: msg, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "var newMsg = {};\r\nvar HIGH_CO2 = 1700;\r\nvar LOW_CO2 = 1200;\r\n\r\nif(msg.carbon_dioxide1 > HIGH_CO2 || msg.carbon_dioxide2 > HIGH_CO2){\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params = \"{\\\"pin\\\":\\\"bell2\\\",\\\"enabled\\\":false}\";\r\n    newMsg.additionalInfo = null;\r\n}else if(msg.carbon_dioxide1 < HIGH_CO2 || msg.carbon_dioxide2 < HIGH_CO2) {\r\n    newMsg.method = \"setGpioStatus\";\r\n    newMsg.params =  \"{\\\"pin\\\":\\\"bell2\\\",\\\"enabled\\\":true}\";\r\n    newMsg.additionalInfo = null;\r\n}\r\n\r\nreturn {msg: newMsg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "dec083d0-9405-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Bell 2 By CO2",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 794,
+        "layoutY" : 235
+      },
+      "configuration" : {
+        "ruleChainId" : "a5baf320-9493-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "850b9c80-9496-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Filter",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 638,
+        "layoutY" : 46
+      },
+      "configuration" : {
+        "ruleChainId" : "a5baf320-9493-11ee-a4b9-6f934fed2bf9"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "850d2320-9496-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Filter",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainInputNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

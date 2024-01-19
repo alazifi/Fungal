@@ -1,0 +1,80 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "2fdfe3f0-98a2-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "2fd4c060-98a2-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BWI - Trigger By Room Temperature",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "Success"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 303,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nvar device = metadata.device;\r\nvar HIGH_TEMP = Number(metadata.maxRoomTempThreshold);\r\nvar LOW_TEMP = Number(metadata.minRoomTempThreshold);\r\nvar deviceTriggered = metadata.identifier + device;\r\n\r\n\r\npayload.method = \"setGpioStatus\";\r\npayload.additionalInfo = null;\r\n\r\nif (msg.room_temp1 > HIGH_TEMP || msg.room_temp2 >\r\n    HIGH_TEMP) {\r\n    payload.params =\r\n        \"{\\\"pin\\\":\\\"\" + deviceTriggered +\r\n        \"\\\",\\\"enabled\\\":true}\";\r\n} else if (msg.room_temp1 < LOW_TEMP || msg.room_temp2 <\r\n    LOW_TEMP) {\r\n    payload.params =\r\n        \"{\\\"pin\\\":\\\"\" + deviceTriggered +\r\n        \"\\\",\\\"enabled\\\":false}\";\r\n}\r\n\r\nreturn {\r\n    msg: payload,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+        "tbelScript" : ""
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "2fdfe3f0-98a2-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Room Temperature",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 576,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "timeoutInSeconds" : 60
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "2fe0a740-98a2-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Room Temperature",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

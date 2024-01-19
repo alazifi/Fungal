@@ -1,0 +1,271 @@
+{
+  "entityType" : "DASHBOARD",
+  "entity" : {
+    "assignedCustomers" : [ {
+      "customerId" : {
+        "entityType" : "CUSTOMER",
+        "id" : "2176ec10-9243-11ee-a4b9-6f934fed2bf9"
+      },
+      "title" : "IEG Shed Plantation",
+      "public" : false
+    } ],
+    "configuration" : {
+      "description" : "",
+      "widgets" : {
+        "b0bf3bcc-78cd-ad2c-848b-56396780a2bb" : {
+          "typeFullFqn" : "system.cards.timeseries_table",
+          "type" : "timeseries",
+          "sizeX" : 8,
+          "sizeY" : 6.5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "device",
+              "name" : "",
+              "deviceId" : "00dbc110-9243-11ee-a4b9-6f934fed2bf9",
+              "entityAliasId" : null,
+              "filterId" : null,
+              "dataKeys" : [ {
+                "name" : "bwi_001_u01_humidity1",
+                "type" : "timeseries",
+                "label" : "Humidity 1",
+                "color" : "#8bc34a",
+                "settings" : { },
+                "_hash" : 0.5896364665581384,
+                "units" : "%",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_humidity2",
+                "type" : "timeseries",
+                "label" : "Humidity 2",
+                "color" : "#3f51b5",
+                "settings" : { },
+                "_hash" : 0.7456172846417912,
+                "units" : "%",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u01_room_temp1",
+                "type" : "timeseries",
+                "label" : "Room Temperature 1",
+                "color" : "#e91e63",
+                "settings" : { },
+                "_hash" : 0.12892513756489832,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_room_temp2",
+                "type" : "timeseries",
+                "label" : "Room Temperature 2",
+                "color" : "#ffeb3b",
+                "settings" : { },
+                "_hash" : 0.20305825363703178,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u01_carbon_dioxide1",
+                "type" : "timeseries",
+                "label" : "CO2",
+                "color" : "#03a9f4",
+                "settings" : { },
+                "_hash" : 0.43604509413569303,
+                "units" : "ppm",
+                "decimals" : 0
+              }, {
+                "name" : "bwi_001_u01_compose_temp1",
+                "type" : "timeseries",
+                "label" : "Temp 1",
+                "color" : "#2196f3",
+                "settings" : { },
+                "_hash" : 0.7397493807214557,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u01_compose_temp2",
+                "type" : "timeseries",
+                "label" : "Temp 2",
+                "color" : "#4caf50",
+                "settings" : { },
+                "_hash" : 0.5965489659936178,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u01_compose_temp3",
+                "type" : "timeseries",
+                "label" : "Temp 3",
+                "color" : "#f44336",
+                "settings" : { },
+                "_hash" : 0.05163300945806637,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_compose_temp4",
+                "type" : "timeseries",
+                "label" : "Temp 4",
+                "color" : "#ffc107",
+                "settings" : { },
+                "_hash" : 0.5365651949719106,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_compose_temp5",
+                "type" : "timeseries",
+                "label" : "Temp 5",
+                "color" : "#607d8b",
+                "settings" : { },
+                "_hash" : 0.95645474213171,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_compose_temp6",
+                "type" : "timeseries",
+                "label" : "Temp 6",
+                "color" : "#9c27b0",
+                "settings" : { },
+                "_hash" : 0.3881987459718219,
+                "units" : "°C",
+                "decimals" : 2
+              } ],
+              "alarmFilterConfig" : {
+                "statusList" : [ "ACTIVE" ]
+              },
+              "latestDataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "hideInterval" : false,
+              "hideLastInterval" : false,
+              "hideQuickInterval" : false,
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 0,
+                "timewindowMs" : 259200000,
+                "quickInterval" : "CURRENT_DAY",
+                "interval" : 1000
+              },
+              "aggregation" : {
+                "type" : "NONE",
+                "limit" : 200
+              },
+              "timezone" : null
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgb(255, 255, 255)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "8px",
+            "settings" : {
+              "showTimestamp" : true,
+              "displayPagination" : true,
+              "defaultPageSize" : 10,
+              "enableSearch" : true,
+              "enableSelectColumnDisplay" : true
+            },
+            "title" : "Timeseries table",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400,
+              "padding" : "5px 10px 5px 10px"
+            },
+            "useDashboardTimewindow" : false,
+            "showLegend" : false,
+            "widgetStyle" : { },
+            "actions" : { },
+            "showTitleIcon" : false,
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "displayTimewindow" : true,
+            "configMode" : "basic",
+            "titleFont" : null,
+            "titleColor" : null,
+            "titleIcon" : null
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "b0bf3bcc-78cd-ad2c-848b-56396780a2bb"
+        }
+      },
+      "states" : {
+        "default" : {
+          "name" : "Streaming",
+          "root" : true,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "b0bf3bcc-78cd-ad2c-848b-56396780a2bb" : {
+                  "sizeX" : 25,
+                  "sizeY" : 40,
+                  "row" : 0,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#eeeeee",
+                "columns" : 24,
+                "margin" : 10,
+                "outerMargin" : true,
+                "backgroundSizeMode" : "100%"
+              }
+            }
+          }
+        }
+      },
+      "entityAliases" : { },
+      "filters" : { },
+      "timewindow" : {
+        "displayValue" : "",
+        "hideInterval" : false,
+        "hideLastInterval" : false,
+        "hideQuickInterval" : false,
+        "hideAggregation" : false,
+        "hideAggInterval" : false,
+        "hideTimezone" : false,
+        "selectedTab" : 0,
+        "realtime" : {
+          "realtimeType" : 0,
+          "interval" : 1000,
+          "timewindowMs" : 60000,
+          "quickInterval" : "CURRENT_DAY"
+        },
+        "history" : {
+          "historyType" : 0,
+          "interval" : 1000,
+          "timewindowMs" : 60000,
+          "fixedTimewindow" : {
+            "startTimeMs" : 1702124862224,
+            "endTimeMs" : 1702211262224
+          },
+          "quickInterval" : "CURRENT_DAY"
+        },
+        "aggregation" : {
+          "type" : "AVG",
+          "limit" : 25000
+        }
+      },
+      "settings" : {
+        "stateControllerId" : "entity",
+        "showTitle" : false,
+        "showDashboardsSelect" : true,
+        "showEntitiesSelect" : true,
+        "showDashboardTimewindow" : true,
+        "showDashboardExport" : true,
+        "toolbarAlwaysOpen" : true
+      }
+    },
+    "externalId" : null,
+    "id" : {
+      "entityType" : "DASHBOARD",
+      "id" : "84578060-9757-11ee-a4b9-6f934fed2bf9"
+    },
+    "image" : null,
+    "mobileHide" : false,
+    "mobileOrder" : null,
+    "name" : "Table BWI - Shed 1",
+    "title" : "Table BWI - Shed 1"
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

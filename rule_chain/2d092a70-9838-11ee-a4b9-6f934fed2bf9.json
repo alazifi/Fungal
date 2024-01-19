@@ -1,0 +1,103 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "add7f300-983a-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "2d092a70-9838-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BWI - Trigger By Compose Temperature",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "Success"
+    } ],
+    "firstNodeIndex" : 0,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 303,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nvar device = metadata.device;\r\nvar HIGH_TEMP = Number(metadata.maxComposeTempThreshold);\r\nvar LOW_TEMP = Number(metadata.minComposeTempThreshold);\r\nvar deviceTriggered = metadata.identifier + device;\r\n\r\nvar composeTemp = [msg.compose_temp1, msg.compose_temp2, msg\r\n    .compose_temp3, msg.compose_temp4, msg\r\n    .compose_temp5, msg.compose_temp6\r\n];\r\n\r\nfunction maxThresholdCheck(MAX) {\r\n    return MAX > HIGH_TEMP;\r\n}\r\n\r\nfunction minThresholdCheck(MIN) {\r\n    return MIN < LOW_TEMP;\r\n}\r\n\r\nvar maxThreshold = composeTemp.some(maxThresholdCheck);\r\nvar minThreshold = composeTemp.some(minThresholdCheck);\r\n\r\npayload.method = \"setGpioStatus\";\r\npayload.additionalInfo = null;\r\n\r\nif (maxThreshold) {\r\n    payload.params = \"{\\\"pin\\\":\\\"\" + deviceTriggered +\r\n        \"\\\",\\\"enabled\\\":true}\";\r\n} else if (minThreshold) {\r\n    payload.params = \"{\\\"pin\\\":\\\"\" + deviceTriggered +\r\n        \"\\\",\\\"enabled\\\":false}\";\r\n}\r\n\r\nreturn {msg: payload, metadata: metadata, msgType: msgType};",
+        "tbelScript" : ""
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "add7f300-983a-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Compose Temperature",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 576,
+        "layoutY" : 151
+      },
+      "configuration" : {
+        "timeoutInSeconds" : 60
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "44296f90-983c-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Trigger By Compose Temperature",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "Just node for testing",
+        "layoutX" : 293,
+        "layoutY" : 313
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\nvar mode;\nvar mode_sekarang = metadata.deviceType;\n\nvar generatifPhase = [\"Mode 1\", \"Mode 2\", \"Mode 3\"];\nvar vegetatifPhase = [\"Mode 4\", \"Mode 5\", \"Mode 6\"];\n\nfunction cekMode(cek){\n    return mode_sekarang == cek;\n}\n\nvar parameter1 = generatifPhase.some(cekMode);\nvar parameter2 = vegetatifPhase.some(cekMode);\n\nif(parameter1){\n    mode = \"Generatif\";\n} else if (parameter2){\n    mode = \"vegetatif\";\n}\n\nif(mode == \"Generatif\"){\n    payload.mode = \"Ini Mode Generatif\";\n}else if(mode == \"Vegetatif\"){\n    payload.mode = \"Ini Mode Vegetatif\";\n}\n\nreturn {msg: payload, metadata: metadata, msgType: msgType};",
+        "tbelScript" : "return {msg: msg, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "ad3e6620-98be-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Unused Node",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

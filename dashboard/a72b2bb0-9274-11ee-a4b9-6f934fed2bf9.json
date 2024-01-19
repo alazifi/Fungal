@@ -1,0 +1,740 @@
+{
+  "entityType" : "DASHBOARD",
+  "entity" : {
+    "assignedCustomers" : [ {
+      "customerId" : {
+        "entityType" : "CUSTOMER",
+        "id" : "2176ec10-9243-11ee-a4b9-6f934fed2bf9"
+      },
+      "title" : "IEG Shed Plantation",
+      "public" : false
+    } ],
+    "configuration" : {
+      "description" : "",
+      "widgets" : {
+        "c498c002-e907-4a12-f5d3-354bdc9d40a1" : {
+          "typeFullFqn" : "system.control_widgets.switch_control",
+          "type" : "rpc",
+          "sizeX" : 4,
+          "sizeY" : 2.5,
+          "config" : {
+            "targetDeviceAliases" : [ ],
+            "showTitle" : false,
+            "backgroundColor" : "#e6e7e8",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "title" : "Alarm",
+              "showOnOffLabels" : true,
+              "initialValue" : false,
+              "retrieveValueMethod" : "attribute",
+              "valueKey" : "bwi_001_u01_bell1",
+              "getValueMethod" : "getValue",
+              "parseValueFunction" : "return data ? true : false;",
+              "setValueMethod" : "setGpioStatus",
+              "convertValueFunction" : "return {\n    \"pin\" : \"bwi_001_u01_bell1\",\n    \"enabled\" : value\n};",
+              "requestTimeout" : 500,
+              "requestPersistent" : false,
+              "persistentPollingInterval" : 5000
+            },
+            "title" : "Switch Control",
+            "dropShadow" : true,
+            "enableFullscreen" : false,
+            "widgetStyle" : { },
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "useDashboardTimewindow" : true,
+            "showLegend" : false,
+            "actions" : { },
+            "decimals" : 2,
+            "datasources" : [ ],
+            "targetDeviceAliasIds" : [ "47ee5480-7c4d-7230-4f3f-a5287d829c98" ],
+            "widgetCss" : "",
+            "pageSize" : 1024,
+            "noDataDisplayMessage" : "No Data"
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "c498c002-e907-4a12-f5d3-354bdc9d40a1"
+        },
+        "23bf5148-fda1-9ec0-a97c-9817869913f2" : {
+          "typeFullFqn" : "system.charts.basic_timeseries",
+          "type" : "timeseries",
+          "sizeX" : 8,
+          "sizeY" : 5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "device",
+              "name" : "",
+              "deviceId" : "00dbc110-9243-11ee-a4b9-6f934fed2bf9",
+              "dataKeys" : [ {
+                "name" : "bwi_001_u01_compose_temp1",
+                "type" : "timeseries",
+                "label" : "Suhu Kompos 1",
+                "color" : "#9c27b0",
+                "settings" : { },
+                "_hash" : 0.23933910892604993,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u01_compose_temp2",
+                "type" : "timeseries",
+                "label" : "Suhu Kompos 2",
+                "color" : "#8bc34a",
+                "settings" : { },
+                "_hash" : 0.33846859830904963,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u01_compose_temp3",
+                "type" : "timeseries",
+                "label" : "Suhu Kompos 3",
+                "color" : "#3f51b5",
+                "settings" : { },
+                "_hash" : 0.1573341668899484,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_compose_temp4",
+                "type" : "timeseries",
+                "label" : "Suhu Kompos 4",
+                "color" : "#e91e63",
+                "settings" : { },
+                "_hash" : 0.7306686369407447,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_compose_temp5",
+                "type" : "timeseries",
+                "label" : "Suhu Kompos 5",
+                "color" : "#ffeb3b",
+                "settings" : { },
+                "_hash" : 0.08748430255038109,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_compose_temp6",
+                "type" : "timeseries",
+                "label" : "Suhu Kompos 6",
+                "color" : "#03a9f4",
+                "settings" : { },
+                "_hash" : 0.8691634479499641,
+                "units" : "°C",
+                "decimals" : 1
+              } ],
+              "alarmFilterConfig" : {
+                "statusList" : [ "ACTIVE" ]
+              },
+              "latestDataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "hideInterval" : false,
+              "hideLastInterval" : false,
+              "hideQuickInterval" : false,
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 0,
+                "timewindowMs" : 604800000,
+                "quickInterval" : "CURRENT_DAY",
+                "interval" : 1800000
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 25000
+              },
+              "timezone" : null
+            },
+            "showTitle" : true,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "8px",
+            "settings" : {
+              "stack" : false,
+              "fontSize" : 10,
+              "fontColor" : "#545454",
+              "showTooltip" : true,
+              "tooltipIndividual" : false,
+              "tooltipCumulative" : false,
+              "hideZeros" : false,
+              "grid" : {
+                "verticalLines" : true,
+                "horizontalLines" : true,
+                "outlineWidth" : 1,
+                "color" : "#545454",
+                "backgroundColor" : null,
+                "tickColor" : "#DDDDDD"
+              },
+              "xaxis" : {
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454"
+              },
+              "yaxis" : {
+                "min" : null,
+                "max" : null,
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454",
+                "tickSize" : null,
+                "tickDecimals" : 0,
+                "ticksFormatter" : ""
+              },
+              "shadowSize" : 4,
+              "smoothLines" : false,
+              "comparisonEnabled" : false,
+              "xaxisSecond" : {
+                "axisPosition" : "top",
+                "title" : null,
+                "showLabels" : true
+              },
+              "showLegend" : true,
+              "legendConfig" : {
+                "direction" : "column",
+                "position" : "bottom",
+                "sortDataKeys" : false,
+                "showMin" : false,
+                "showMax" : false,
+                "showAvg" : false,
+                "showTotal" : false,
+                "showLatest" : true
+              },
+              "customLegendEnabled" : false
+            },
+            "title" : "Suhu Kompos",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "configMode" : "basic",
+            "actions" : { },
+            "showTitleIcon" : false,
+            "titleIcon" : "thermostat",
+            "iconColor" : "#1F6BDD",
+            "useDashboardTimewindow" : false,
+            "displayTimewindow" : true,
+            "titleFont" : null,
+            "titleColor" : null
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "23bf5148-fda1-9ec0-a97c-9817869913f2"
+        },
+        "43336a1b-d0cd-971f-9562-2ed64121b0b3" : {
+          "typeFullFqn" : "system.charts.basic_timeseries",
+          "type" : "timeseries",
+          "sizeX" : 8,
+          "sizeY" : 5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "device",
+              "name" : "",
+              "deviceId" : "00dbc110-9243-11ee-a4b9-6f934fed2bf9",
+              "dataKeys" : [ {
+                "name" : "bwi_001_u01_humidity1",
+                "type" : "timeseries",
+                "label" : "Kelembaban 1",
+                "color" : "#2196f3",
+                "settings" : { },
+                "_hash" : 0.7949845758220306,
+                "units" : "%",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_humidity2",
+                "type" : "timeseries",
+                "label" : "Kelembaban 2",
+                "color" : "#4caf50",
+                "settings" : { },
+                "_hash" : 0.4311213185720739,
+                "units" : "%",
+                "decimals" : 2
+              } ],
+              "alarmFilterConfig" : {
+                "statusList" : [ "ACTIVE" ]
+              },
+              "latestDataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "hideInterval" : false,
+              "hideLastInterval" : false,
+              "hideQuickInterval" : false,
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 0,
+                "timewindowMs" : 604800000,
+                "quickInterval" : "CURRENT_DAY",
+                "interval" : 1800000
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 25000
+              },
+              "timezone" : null
+            },
+            "showTitle" : true,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "8px",
+            "settings" : {
+              "stack" : false,
+              "fontSize" : 10,
+              "fontColor" : "#545454",
+              "showTooltip" : true,
+              "tooltipIndividual" : false,
+              "tooltipCumulative" : false,
+              "hideZeros" : false,
+              "grid" : {
+                "verticalLines" : true,
+                "horizontalLines" : true,
+                "outlineWidth" : 1,
+                "color" : "#545454",
+                "backgroundColor" : null,
+                "tickColor" : "#DDDDDD"
+              },
+              "xaxis" : {
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454"
+              },
+              "yaxis" : {
+                "min" : null,
+                "max" : null,
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454",
+                "tickSize" : null,
+                "tickDecimals" : 0,
+                "ticksFormatter" : ""
+              },
+              "shadowSize" : 4,
+              "smoothLines" : false,
+              "comparisonEnabled" : false,
+              "xaxisSecond" : {
+                "axisPosition" : "top",
+                "title" : null,
+                "showLabels" : true
+              },
+              "showLegend" : true,
+              "legendConfig" : {
+                "direction" : "column",
+                "position" : "bottom",
+                "sortDataKeys" : false,
+                "showMin" : false,
+                "showMax" : false,
+                "showAvg" : false,
+                "showTotal" : false,
+                "showLatest" : true
+              },
+              "customLegendEnabled" : false
+            },
+            "title" : "Kelembaban Ruang",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "configMode" : "basic",
+            "actions" : { },
+            "showTitleIcon" : false,
+            "titleIcon" : "thermostat",
+            "iconColor" : "#1F6BDD",
+            "useDashboardTimewindow" : false,
+            "displayTimewindow" : true,
+            "titleFont" : null,
+            "titleColor" : null
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "43336a1b-d0cd-971f-9562-2ed64121b0b3"
+        },
+        "4e4299b1-7968-22a4-544c-a30e6ef119d6" : {
+          "typeFullFqn" : "system.charts.basic_timeseries",
+          "type" : "timeseries",
+          "sizeX" : 8,
+          "sizeY" : 5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "device",
+              "name" : "",
+              "deviceId" : "00dbc110-9243-11ee-a4b9-6f934fed2bf9",
+              "dataKeys" : [ {
+                "name" : "bwi_001_u01_room_temp1",
+                "type" : "timeseries",
+                "label" : "Suhu Ruang 1",
+                "color" : "#2196f3",
+                "settings" : { },
+                "_hash" : 0.4117139280458282,
+                "units" : "°C",
+                "decimals" : 2
+              }, {
+                "name" : "bwi_001_u02_room_temp2",
+                "type" : "timeseries",
+                "label" : "Suhu Ruang 2",
+                "color" : "#4caf50",
+                "settings" : { },
+                "_hash" : 0.3362786734964911,
+                "units" : "°C",
+                "decimals" : 2
+              } ],
+              "alarmFilterConfig" : {
+                "statusList" : [ "ACTIVE" ]
+              },
+              "latestDataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "hideInterval" : false,
+              "hideLastInterval" : false,
+              "hideQuickInterval" : false,
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 0,
+                "timewindowMs" : 604800000,
+                "quickInterval" : "CURRENT_DAY",
+                "interval" : 1800000
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 25000
+              },
+              "timezone" : null
+            },
+            "showTitle" : true,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "8px",
+            "settings" : {
+              "stack" : false,
+              "fontSize" : 10,
+              "fontColor" : "#545454",
+              "showTooltip" : true,
+              "tooltipIndividual" : false,
+              "tooltipCumulative" : false,
+              "hideZeros" : false,
+              "grid" : {
+                "verticalLines" : true,
+                "horizontalLines" : true,
+                "outlineWidth" : 1,
+                "color" : "#545454",
+                "backgroundColor" : null,
+                "tickColor" : "#DDDDDD"
+              },
+              "xaxis" : {
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454"
+              },
+              "yaxis" : {
+                "min" : null,
+                "max" : null,
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454",
+                "tickSize" : null,
+                "tickDecimals" : 0,
+                "ticksFormatter" : ""
+              },
+              "shadowSize" : 4,
+              "smoothLines" : false,
+              "comparisonEnabled" : false,
+              "xaxisSecond" : {
+                "axisPosition" : "top",
+                "title" : null,
+                "showLabels" : true
+              },
+              "showLegend" : true,
+              "legendConfig" : {
+                "direction" : "column",
+                "position" : "bottom",
+                "sortDataKeys" : false,
+                "showMin" : false,
+                "showMax" : false,
+                "showAvg" : false,
+                "showTotal" : false,
+                "showLatest" : true
+              },
+              "customLegendEnabled" : false
+            },
+            "title" : "Suhu Ruang",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "configMode" : "basic",
+            "actions" : { },
+            "showTitleIcon" : false,
+            "titleIcon" : "thermostat",
+            "iconColor" : "#1F6BDD",
+            "useDashboardTimewindow" : false,
+            "displayTimewindow" : true,
+            "titleFont" : null,
+            "titleColor" : null
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "4e4299b1-7968-22a4-544c-a30e6ef119d6"
+        },
+        "542589a4-5ec3-3b3b-6f10-5feea097c17a" : {
+          "typeFullFqn" : "system.charts.basic_timeseries",
+          "type" : "timeseries",
+          "sizeX" : 8,
+          "sizeY" : 5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "device",
+              "name" : "",
+              "deviceId" : "00dbc110-9243-11ee-a4b9-6f934fed2bf9",
+              "dataKeys" : [ {
+                "name" : "bwi_001_u01_carbon_dioxide1",
+                "type" : "timeseries",
+                "label" : "Kadar CO2 - 1",
+                "color" : "#2196f3",
+                "settings" : { },
+                "_hash" : 0.6068131328168707,
+                "units" : "ppm",
+                "decimals" : 0
+              }, {
+                "name" : "bwi_001_u02_carbon_dioxide2",
+                "type" : "timeseries",
+                "label" : "Kadar CO2 - 2",
+                "color" : "#4caf50",
+                "settings" : { },
+                "_hash" : 0.23008766432794636,
+                "units" : "ppm",
+                "decimals" : 0
+              } ],
+              "alarmFilterConfig" : {
+                "statusList" : [ "ACTIVE" ]
+              },
+              "latestDataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "hideInterval" : false,
+              "hideLastInterval" : false,
+              "hideQuickInterval" : false,
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 0,
+                "timewindowMs" : 604800000,
+                "quickInterval" : "CURRENT_DAY",
+                "interval" : 1800000
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 25000
+              },
+              "timezone" : null
+            },
+            "showTitle" : true,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "8px",
+            "settings" : {
+              "stack" : false,
+              "fontSize" : 10,
+              "fontColor" : "#545454",
+              "showTooltip" : true,
+              "tooltipIndividual" : false,
+              "tooltipCumulative" : false,
+              "hideZeros" : false,
+              "grid" : {
+                "verticalLines" : true,
+                "horizontalLines" : true,
+                "outlineWidth" : 1,
+                "color" : "#545454",
+                "backgroundColor" : null,
+                "tickColor" : "#DDDDDD"
+              },
+              "xaxis" : {
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454"
+              },
+              "yaxis" : {
+                "min" : null,
+                "max" : null,
+                "title" : null,
+                "showLabels" : true,
+                "color" : "#545454",
+                "tickSize" : null,
+                "tickDecimals" : 0,
+                "ticksFormatter" : ""
+              },
+              "shadowSize" : 4,
+              "smoothLines" : false,
+              "comparisonEnabled" : false,
+              "xaxisSecond" : {
+                "axisPosition" : "top",
+                "title" : null,
+                "showLabels" : true
+              },
+              "showLegend" : true,
+              "legendConfig" : {
+                "direction" : "column",
+                "position" : "bottom",
+                "sortDataKeys" : false,
+                "showMin" : false,
+                "showMax" : false,
+                "showAvg" : false,
+                "showTotal" : false,
+                "showLatest" : true
+              },
+              "customLegendEnabled" : false
+            },
+            "title" : "Kadar CO2",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "configMode" : "basic",
+            "actions" : { },
+            "showTitleIcon" : false,
+            "titleIcon" : "thermostat",
+            "iconColor" : "#1F6BDD",
+            "useDashboardTimewindow" : false,
+            "displayTimewindow" : true,
+            "titleFont" : null,
+            "titleColor" : null
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "542589a4-5ec3-3b3b-6f10-5feea097c17a"
+        }
+      },
+      "states" : {
+        "default" : {
+          "name" : "Control",
+          "root" : true,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "c498c002-e907-4a12-f5d3-354bdc9d40a1" : {
+                  "sizeX" : 5,
+                  "sizeY" : 5,
+                  "row" : 0,
+                  "col" : 0
+                },
+                "23bf5148-fda1-9ec0-a97c-9817869913f2" : {
+                  "sizeX" : 11,
+                  "sizeY" : 10,
+                  "row" : 0,
+                  "col" : 5
+                },
+                "43336a1b-d0cd-971f-9562-2ed64121b0b3" : {
+                  "sizeX" : 12,
+                  "sizeY" : 10,
+                  "row" : 0,
+                  "col" : 16
+                },
+                "4e4299b1-7968-22a4-544c-a30e6ef119d6" : {
+                  "sizeX" : 14,
+                  "sizeY" : 10,
+                  "row" : 10,
+                  "col" : 0
+                },
+                "542589a4-5ec3-3b3b-6f10-5feea097c17a" : {
+                  "sizeX" : 14,
+                  "sizeY" : 10,
+                  "row" : 10,
+                  "col" : 14
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#eeeeee",
+                "columns" : 24,
+                "margin" : 10,
+                "outerMargin" : true,
+                "backgroundSizeMode" : "100%"
+              }
+            }
+          }
+        }
+      },
+      "entityAliases" : {
+        "47ee5480-7c4d-7230-4f3f-a5287d829c98" : {
+          "id" : "47ee5480-7c4d-7230-4f3f-a5287d829c98",
+          "alias" : "BWI - Shed 1",
+          "filter" : {
+            "type" : "entityList",
+            "resolveMultiple" : true,
+            "entityType" : "DEVICE",
+            "entityList" : [ "00dbc110-9243-11ee-a4b9-6f934fed2bf9" ]
+          }
+        }
+      },
+      "filters" : { },
+      "timewindow" : {
+        "displayValue" : "",
+        "hideInterval" : false,
+        "hideLastInterval" : false,
+        "hideQuickInterval" : false,
+        "hideAggregation" : false,
+        "hideAggInterval" : false,
+        "hideTimezone" : false,
+        "selectedTab" : 0,
+        "realtime" : {
+          "realtimeType" : 0,
+          "interval" : 1000,
+          "timewindowMs" : 60000,
+          "quickInterval" : "CURRENT_DAY"
+        },
+        "history" : {
+          "historyType" : 0,
+          "interval" : 1000,
+          "timewindowMs" : 60000,
+          "fixedTimewindow" : {
+            "startTimeMs" : 1701587628051,
+            "endTimeMs" : 1701674028051
+          },
+          "quickInterval" : "CURRENT_DAY"
+        },
+        "aggregation" : {
+          "type" : "AVG",
+          "limit" : 25000
+        }
+      },
+      "settings" : {
+        "stateControllerId" : "entity",
+        "showTitle" : false,
+        "showDashboardsSelect" : true,
+        "showEntitiesSelect" : true,
+        "showDashboardTimewindow" : true,
+        "showDashboardExport" : true,
+        "toolbarAlwaysOpen" : true
+      }
+    },
+    "externalId" : null,
+    "id" : {
+      "entityType" : "DASHBOARD",
+      "id" : "a72b2bb0-9274-11ee-a4b9-6f934fed2bf9"
+    },
+    "image" : null,
+    "mobileHide" : false,
+    "mobileOrder" : null,
+    "name" : "BWI - Shed 1",
+    "title" : "BWI - Shed 1"
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

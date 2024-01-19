@@ -1,0 +1,144 @@
+{
+  "entityType" : "RULE_CHAIN",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "configuration" : null,
+    "debugMode" : false,
+    "externalId" : null,
+    "firstRuleNodeId" : {
+      "entityType" : "RULE_NODE",
+      "id" : "2746fd40-9830-11ee-a4b9-6f934fed2bf9"
+    },
+    "id" : {
+      "entityType" : "RULE_CHAIN",
+      "id" : "84ad4be0-9733-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "BWI - Data Enrichment",
+    "root" : false,
+    "type" : "CORE"
+  },
+  "metaData" : {
+    "connections" : [ {
+      "fromIndex" : 0,
+      "toIndex" : 1,
+      "type" : "Success"
+    }, {
+      "fromIndex" : 0,
+      "toIndex" : 2,
+      "type" : "Failure"
+    }, {
+      "fromIndex" : 3,
+      "toIndex" : 0,
+      "type" : "Success"
+    } ],
+    "firstNodeIndex" : 3,
+    "nodes" : [ {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 558,
+        "layoutY" : 155
+      },
+      "configuration" : {
+        "scriptLang" : "JS",
+        "jsScript" : "var payload = {};\r\nfor (var value in msg) {\r\n    if (msg.hasOwnProperty(value)) {\r\n        var newName = value.replace(/^bwi_[0-9]+_u[0-9]+_/g, \"\");\r\n        payload[newName] = msg[value];\r\n    }\r\n    metadata.identifier = value.substring(0,12);\r\n}\r\n\r\nreturn { msg: payload, metadata: metadata, msgType: msgType };",
+        "tbelScript" : "return {msg: pesan, metadata: metadata, msgType: msgType};"
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "6eeae4e0-9736-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Generalization",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.transform.TbTransformMsgNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 865,
+        "layoutY" : 109
+      },
+      "configuration" : {
+        "version" : 0
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "6eec4470-9736-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Success",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainOutputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 864,
+        "layoutY" : 211
+      },
+      "configuration" : {
+        "version" : 0
+      },
+      "configurationVersion" : 0,
+      "createdTime" : 0,
+      "debugMode" : false,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "6eec9290-9736-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Failure",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.flow.TbRuleChainOutputNode"
+    }, {
+      "additionalInfo" : {
+        "description" : "",
+        "layoutX" : 303,
+        "layoutY" : 152
+      },
+      "configuration" : {
+        "dataToFetch" : "ATTRIBUTES",
+        "dataMapping" : {
+          "BWI_minRoomTempThreshold" : "minRoomTempThreshold",
+          "BWI_maxRoomTempThreshold" : "maxRoomTempThreshold",
+          "BWI_minComposeTempThreshold" : "minComposeTempThreshold",
+          "BWI_maxComposeTempThreshold" : "maxComposeTempThreshold",
+          "BWI_middleRoomTempThreshold" : "middleRoomTempThreshold",
+          "BWI_minHumidityThreshold" : "minHumidityThreshold",
+          "BWI_maxHumidityThreshold" : "maxHumidityThreshold",
+          "BWI_minCO2Threshold" : "minCO2Threshold",
+          "BWI_maxCO2Threshold" : "maxCO2Threshold",
+          "bell1" : "bell1",
+          "bell2" : "bell2"
+        },
+        "fetchTo" : "METADATA"
+      },
+      "configurationVersion" : 1,
+      "createdTime" : 0,
+      "debugMode" : true,
+      "externalId" : null,
+      "id" : {
+        "entityType" : "RULE_NODE",
+        "id" : "2746fd40-9830-11ee-a4b9-6f934fed2bf9"
+      },
+      "name" : "Threshold Data",
+      "ruleChainId" : null,
+      "singletonMode" : false,
+      "type" : "org.thingsboard.rule.engine.metadata.TbGetTenantAttributeNode"
+    } ],
+    "ruleChainConnections" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}

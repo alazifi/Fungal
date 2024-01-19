@@ -1,0 +1,29 @@
+{
+  "entityType" : "CUSTOMER",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : "",
+      "homeDashboardId" : null,
+      "homeDashboardHideToolbar" : true
+    },
+    "address" : "Sukamanah - Pangalengan - Bandung",
+    "address2" : null,
+    "city" : "Bandung",
+    "country" : "Indonesia",
+    "email" : null,
+    "externalId" : null,
+    "id" : {
+      "entityType" : "CUSTOMER",
+      "id" : "2176ec10-9243-11ee-a4b9-6f934fed2bf9"
+    },
+    "name" : "IEG Shed Plantation",
+    "phone" : null,
+    "state" : "West Java",
+    "title" : "IEG Shed Plantation",
+    "zip" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}
