@@ -1,7 +1,14 @@
 {
   "entityType" : "DASHBOARD",
   "entity" : {
-    "assignedCustomers" : null,
+    "assignedCustomers" : [ {
+      "customerId" : {
+        "entityType" : "CUSTOMER",
+        "id" : "2176ec10-9243-11ee-a4b9-6f934fed2bf9"
+      },
+      "title" : "IEG Shed Plantation",
+      "public" : false
+    } ],
     "configuration" : {
       "description" : "",
       "widgets" : {
@@ -461,62 +468,62 @@
               "widgets" : {
                 "42634643-6841-2a7b-3279-08b988f7f710" : {
                   "sizeX" : 8,
-                  "sizeY" : 6,
+                  "sizeY" : 9,
                   "row" : 0,
                   "col" : 24
                 },
                 "9f58c168-20af-95b1-d509-50877c0a312a" : {
                   "sizeX" : 8,
-                  "sizeY" : 6,
+                  "sizeY" : 9,
                   "row" : 0,
                   "col" : 8
                 },
                 "4572f425-e6b9-16c6-cf2e-aa95c8848055" : {
                   "sizeX" : 8,
-                  "sizeY" : 6,
+                  "sizeY" : 9,
                   "row" : 0,
                   "col" : 16
                 },
                 "86eed443-1f95-1c48-5aa2-372353636e71" : {
                   "sizeX" : 11,
                   "sizeY" : 7,
-                  "row" : 6,
+                  "row" : 9,
                   "col" : 0
                 },
                 "48b82ca2-24e5-ca4c-e62a-ee90bcf9498f" : {
                   "sizeX" : 11,
                   "sizeY" : 7,
-                  "row" : 6,
+                  "row" : 9,
                   "col" : 11
                 },
                 "946806f7-e50e-536c-af5e-47143acfb17f" : {
                   "sizeX" : 10,
                   "sizeY" : 7,
-                  "row" : 6,
+                  "row" : 9,
                   "col" : 22
                 },
                 "d75dcd5c-6594-0611-99d4-75b44b1aa3cf" : {
                   "sizeX" : 11,
                   "sizeY" : 7,
-                  "row" : 13,
+                  "row" : 16,
                   "col" : 0
                 },
                 "8e6a61b5-8b2e-0c8e-22dc-e5cf1d4feda2" : {
                   "sizeX" : 8,
-                  "sizeY" : 6,
+                  "sizeY" : 9,
                   "row" : 0,
                   "col" : 0
                 },
                 "f4f48b3f-ca6e-177d-1dc3-3e47eccf1ff0" : {
                   "sizeX" : 11,
                   "sizeY" : 7,
-                  "row" : 13,
+                  "row" : 16,
                   "col" : 11
                 },
                 "224f2519-d22a-bd38-0dcc-0d6d67d2949a" : {
                   "sizeX" : 10,
                   "sizeY" : 7,
-                  "row" : 13,
+                  "row" : 16,
                   "col" : 22
                 }
               },
