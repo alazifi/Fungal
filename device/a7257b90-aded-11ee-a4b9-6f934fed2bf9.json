@@ -8,7 +8,7 @@
     },
     "customerId" : {
       "entityType" : "CUSTOMER",
-      "id" : "13814000-1dd2-11b2-8080-808080808080"
+      "id" : "2176ec10-9243-11ee-a4b9-6f934fed2bf9"
     },
     "deviceData" : {
       "configuration" : {
@@ -20,7 +20,7 @@
     },
     "deviceProfileId" : {
       "entityType" : "DEVICE_PROFILE",
-      "id" : "fd9e3ec0-9241-11ee-a4b9-6f934fed2bf9"
+      "id" : "10274550-9242-11ee-a4b9-6f934fed2bf9"
     },
     "externalId" : null,
     "firmwareId" : null,
@@ -31,21 +31,20 @@
     "label" : "",
     "name" : "BDG - Shed 45",
     "softwareId" : null,
-    "type" : "F09 BDG - F2 Conditioning"
+    "type" : "F11 BDG - F3 Conditioning"
   },
   "credentials" : {
     "credentialsId" : "XjsnxxhgwkOcCKIX7yPl",
     "credentialsType" : "ACCESS_TOKEN",
     "credentialsValue" : null
   },
-  "relations" : [ ],
   "attributes" : {
     "SERVER_SCOPE" : [ {
       "booleanValue" : true,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "active",
-      "lastUpdateTs" : 1705484301526,
+      "lastUpdateTs" : 1706154027540,
       "longValue" : null,
       "strValue" : null
     }, {
@@ -53,16 +52,16 @@
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "inactivityAlarmTime",
-      "lastUpdateTs" : 1705482981689,
-      "longValue" : 1705482981688,
+      "lastUpdateTs" : 1706151626272,
+      "longValue" : 1706151626270,
       "strValue" : null
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "lastActivityTime",
-      "lastUpdateTs" : 1705649850559,
-      "longValue" : 1705649847557,
+      "lastUpdateTs" : 1706237457534,
+      "longValue" : 1706237457447,
       "strValue" : null
     }, {
       "booleanValue" : null,
